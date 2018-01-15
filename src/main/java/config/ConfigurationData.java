@@ -9,21 +9,5 @@ import javax.enterprise.context.ApplicationScoped;
 @ConfigBundle("rest-endpoints")
 public class ConfigurationData {
 
-    @ConfigValue(watch = true)
-    private String nazivDogodka;
 
-    public String getNazivDogodka() {
-        return nazivDogodka;
-    }
-
-    public void setNazivDogodka(String nazivDogodka) {
-        this.nazivDogodka = nazivDogodka;
-    }
-
-    @Override
-    public String toString() {
-        return "ConfigurationData{" +
-                "nazivDogodka='" + nazivDogodka + '\'' +
-                '}';
-    }
 }

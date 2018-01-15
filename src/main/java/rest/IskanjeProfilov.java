@@ -1,12 +1,14 @@
 package rest;
 
 import bean.ProfilBean;
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import config.ConfigurationData;
 import pojo.Profil;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,6 +19,10 @@ import javax.ws.rs.core.UriInfo;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("iskanje_profilov")
 public class IskanjeProfilov {
+    @Inject
+    @DiscoverService(value = "katalog_dogodkov-service", version = "1.0.x", environment = "dev")
+    private WebTarget target;
+
     @Inject
     private ProfilBean profilBean;
 

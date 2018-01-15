@@ -8,26 +8,11 @@ import java.io.Serializable;
 //import si.fri.rso.sporocilni_sistem.Sporocilo;
 
 
-@Entity(name = "profil")
-@Table(name = "profil")
-@NamedQueries(value =
-        {
-                @NamedQuery(name = "Profil.getAll", query = "SELECT p FROM profil p")
-        })
-
-@UuidGenerator(name = "idGenerator")
-public class Profil implements Serializable {
-    @Id
-    @GeneratedValue(generator = "idGenerator")
+public class Profil {
     private String id;
 
-    // @Transient
-    //  private List<Sporocilo> sporocila;
-
-    @Column(name = "ime")
     private String ime;  //ime uporabnika
 
-    @Column(name = "priimek")
     private String priimek;
 
     public String getId() {
@@ -53,19 +38,5 @@ public class Profil implements Serializable {
     public void setPriimek(String priimek) {
         this.priimek = priimek;
     }
-    /*
-    public List<Sporocilo> getSporocila() {
-        return sporocila;
-    }
 
-    public void setOrders(List<Sporocilo> sporocila) {
-        this.sporocila = sporocila;
-    }*/
-
-    @Override
-    public String toString() {
-        return ("id: " + this.id + ", " +
-                "ime: '" + this.ime +
-                "', priimek: " + this.priimek);
-    }
 }
